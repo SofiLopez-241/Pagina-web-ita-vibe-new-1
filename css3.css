@@ -1,27 +1,138 @@
-/* Tipografia del contenido */
+
+/* ------------------------------------------------------ */
+/* Estilos base y tipografía                              */
+/* ------------------------------------------------------ */
 body {
     font-family: 'Raleway', sans-serif;
     background-color: #f9eee0;
 }
 
-/* Tipografia del titulo */
+/* Tipografía del título principal */
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-family: 'Raleway', serif;
+    font-size: 3.0rem;
+    font-weight: 900;
+    text-align: center;
 }
 
-/* Tipografia de subtitulos */
-h1 em {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.0rem;
-    color: #555;
-}
-
-.item img:hover {
-    transform: scale(1.05);
-}
-
+/* Texto dentro de items generales */
 .item p {
     font-size: 1rem;
     color: #444;
+}
+
+/* Efecto de zoom en imágenes dentro de .item (si las usas fuera de las tarjetas) */
+.item img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* ------------------------------------------------------ */
+/* Tarjetas animadas con altura uniforme                  */
+/* ------------------------------------------------------ */
+.row > [class*='col-'] {
+    display: flex; /* Igualar altura entre columnas */
+}
+
+/* Tarjeta base */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center center;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Efecto de zoom al pasar el puntero */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Permite el efecto al navegar con teclado (accesible) */
+.card:focus-within {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen dentro de la tarjeta: tamaño fijo y recorte elegante */
+.card-img-top {
+    height: 200px; /* Ajusta según tus imágenes */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Zoom de la imagen cuando el cursor pasa sobre la tarjeta */
+.card:hover .card-img-top,
+.card:focus-within .card-img-top {
+    transform: scale(1.08);
+}
+
+/* ------------------------------------------------------ */
+/* Efecto visual clickeable (borde luminoso + fondo)      */
+/* ------------------------------------------------------ */
+
+/* Brillo/borde animado sutil */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de foco visual */
+.card:hover,
+.card:focus-within {
+    background-color: #fff8ef; /* Fondo más claro */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Borde brillante al pasar el puntero */
+.card:hover::after,
+.card:focus-within::after {
+    border-color: rgba(255, 170, 60, 0.6); /* tono cálido naranja */
+    box-shadow: 0 0 12px rgba(255, 170, 60, 0.4);
+}
+
+/* ------------------------------------------------------ */
+/* Texto dentro de las tarjetas                            */
+/* ------------------------------------------------------ */
+.card-body {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    flex-grow: 1; /* Permite que el cuerpo de la tarjeta llene el espacio */
+}
+
+.card-title {
+    font-weight: 700;
+    color: #222;
+}
+
+.card-text {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* ------------------------------------------------------ */
+/* Ajuste para movimiento reducido (accesibilidad)        */
+/* ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card-img-top {
+        transition: none;
+        transform: none;
+    }
 }
