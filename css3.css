@@ -94,8 +94,8 @@ h1 {
 /* Efecto de foco visual */
 .card:hover,
 .card:focus-within {
-    background-color: #fff8ef; /* Fondo más claro */
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    background-color: #c7d498; /* Fondo más claro */
+    box-shadow: 0 12px 28px rgba(179, 178, 178, 0.18);
     text-decoration: none;
     color: inherit;
 }
@@ -103,8 +103,8 @@ h1 {
 /* Borde brillante al pasar el puntero */
 .card:hover::after,
 .card:focus-within::after {
-    border-color: rgba(255, 170, 60, 0.6); /* tono cálido naranja */
-    box-shadow: 0 0 12px rgba(255, 170, 60, 0.4);
+    border-color: rgba(223, 246, 142, 0.6);
+    box-shadow: 0 0 12px rgba(223, 246,142, 0.6);
 }
 
 /* ------------------------------------------------------ */
@@ -135,4 +135,101 @@ h1 {
         transition: none;
         transform: none;
     }
+}
+/* Navbar principal */
+.navbar {
+    border-color: rgba(240, 216, 111, 0.6); /* tono cálido naranja */
+    box-shadow: 0 0 12px rgba(160, 149, 60, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 30px;
+    color: white;
+}
+
+/* Secciones izquierda y derecha */
+.nav-left, .nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-left a,
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+    color: #00bfff;
+}
+
+/* Centro: formulario de búsqueda */
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    border-color: #c7d498;
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+}
+
+.search-form input {
+    border: none;
+    padding: 8px 12px;
+    flex: 1;
+    outline: none;
+    font-size: 14px;
+}
+/* Contenedor del buscador */
+.search-form {
+    display: flex;
+    background-color: white;
+    border: 2px solid transparent;  /* borde invisible por defecto */
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Input del buscador */
+.search-form input {
+    border: none;
+    padding: 8px 12px;
+    flex: 1;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Botón del buscador */
+.search-form button {
+    background-color: #c7d498;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* Hover sobre todo el formulario (input + botón) */
+.search-form:hover {
+    border-color: #8c956b; /* cambia el borde */
+    box-shadow: 0 0 5px rgba(141, 239, 103, 0.582); /* efecto sutil como en Bootstrap */
+}
+
+/* Hover específico del botón (opcional, para reforzar el efecto) */
+.search-form button:hover {
+    background-color: rgba(66, 124, 50, 0.833);
 }
